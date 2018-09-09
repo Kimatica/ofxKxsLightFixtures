@@ -5,7 +5,7 @@
 //  Created by Nestor Rubio Garcia on 17/04/2018.
 //
 
-#include "UVPanel.hpp"
+#include "UVPanel.h"
 
 UVPanel::~UVPanel() { ofLog(OF_LOG_VERBOSE, "UVPanel destroyed"); }
 

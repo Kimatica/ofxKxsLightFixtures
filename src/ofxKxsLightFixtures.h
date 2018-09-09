@@ -11,4 +11,5 @@
 #include "MovingHead.h"
 #include "MovingHeadFusionMKII.h"
 #include "ChauvetColorBandPix.h"
-#include "UVPanel.hpp"
+#include "UVPanel.h"
+#include "PrashPar.h"

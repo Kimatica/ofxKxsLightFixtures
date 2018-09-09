@@ -19,7 +19,7 @@ void DmxFixture::setup(int address, string name) {
     // TODO: create a scaped version of the name.
     // As a rule of thumb, only scaped addresses are sent from remote sender,
     // this avoids having to deal with scaping strings when osc is updated
-    // and provodes better performance
+    // providing better performance
     parameters.setName(name);
     
     initFixtureParameters();
