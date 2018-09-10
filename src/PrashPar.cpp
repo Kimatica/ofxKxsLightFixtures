@@ -15,16 +15,16 @@ PrashPar::PrashPar() {
 }
 
 void PrashPar::update() {
-    channels[0] = dimmer * 255;               // dimmer
-    channels[1] = 5 + ((255-5) * strobe);     // strobe (5-255 - slow>fast)
-    channels[2] = 0;                          // color jump
-    channels[3] = 0;                          // color jump speed
-    channels[4] = red * 255;                  // red
-    channels[5] = green * 255;                // green
-    channels[6] = blue * 255;                 // blue
-    channels[7] = 0; //white * 255;                // white
-    channels[8] = 0; //amber * 255;                // amber
-    channels[9] = uv * 255;                   // uv
+    channels[0] = dimmer * 255;             // dimmer
+    channels[1] = red * 255;                // red
+    channels[2] = green * 255;              // green
+    channels[3] = blue * 255;               // blue
+    channels[4] = 0;                        // white
+    channels[5] = 0;                        // amber
+    channels[6] = uv * 255;                 // blue
+    channels[7] = 5 + ((255-5) * strobe);   // strobe (5-255 - slow>fast)
+    channels[8] = 0;
+    channels[9] = 0;
 }
 
 void PrashPar::initFixtureParameters() {
