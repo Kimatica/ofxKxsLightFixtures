@@ -27,7 +27,11 @@ void DmxFixture::setup(int address, string name) {
 }
 
 const vector<int> & DmxFixture::getChannels() {
-    return channels;
+    if (channelsSmooth.size() == 0) {
+        return channels;
+    } else {
+        return channelsSmooth;
+    }
 }
 
 const int DmxFixture::getNumChannels() {
@@ -54,4 +58,16 @@ void DmxFixture::setTransform(ofMatrix4x4 transform) {
 
 const ofMatrix4x4& DmxFixture::getTransform() {
     return transform;
+}
+
+void DmxFixture::smoothChannels() {
+//    for (int i = 0; i < channels.size(); i++) {
+//        int& target = channels[i];
+//        float& buffer = smoothingBuffer[i];
+//        buffer += float(target - buffer) * smoothing;
+//        channelsSmooth[i] = buffer;
+//    }
+    for(auto& smoother : smoothers) {
+        smoother.update(smoothing);
+    }
 }

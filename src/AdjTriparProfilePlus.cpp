@@ -12,6 +12,13 @@ AdjTriparProfilePlus::~AdjTriparProfilePlus() { ofLog(OF_LOG_VERBOSE, "AdjTripar
 
 AdjTriparProfilePlus::AdjTriparProfilePlus() {
     channels.resize(6);
+    
+    // smoothing
+    channelsSmooth.resize(channels.size());
+    for (int i = 0; i < channels.size(); i++) {
+        smoothers.push_back( Smoother( channels[i], channelsSmooth[i]));
+    }
+    smoothers[4].bypass = true; // do not smooth strobe
 }
 
 void AdjTriparProfilePlus::update() {
@@ -21,6 +28,8 @@ void AdjTriparProfilePlus::update() {
     channels[3] = uv * 255;           // uv
     channels[4] = (strobe > 0.f) ? 64 + (31 * strobe) : 63; // strobe (64-95 = slow-fast)
     channels[5] = dimmer * 255;       // dimmer
+    
+    smoothChannels();
 }
 
 void AdjTriparProfilePlus::initFixtureParameters() {
@@ -31,6 +40,7 @@ void AdjTriparProfilePlus::initFixtureParameters() {
     parameters.add( uv.set("uv", 0, 0, 1));
     parameters.add( dimmer.set("dimmer", 1, 0, 1));
     parameters.add( strobe.set("strobe", 0, 0, 1));
+    parameters.add( smoothing.set("smoothing", 1, 0, 1));
 }
 
 void AdjTriparProfilePlus::initDrawing() {

@@ -12,6 +12,13 @@ ShowtecLedBar16::~ShowtecLedBar16() { ofLog(OF_LOG_VERBOSE, "ShowtecLedBar16 des
     
 ShowtecLedBar16::ShowtecLedBar16() {
     channels.resize(5);
+    
+    // smoothing
+    channelsSmooth.resize(channels.size());
+    for (int i = 0; i < channels.size(); i++) {
+        smoothers.push_back( Smoother( channels[i], channelsSmooth[i]));
+    }
+    smoothers[4].bypass = true; // do not smooth strobe
 }
 
 void ShowtecLedBar16::update() {
@@ -21,6 +28,8 @@ void ShowtecLedBar16::update() {
     channels[3] = dimmer * 255;    // dimmer
     //channels[4] = (strobe < 1) ? 10 + strobe * 245 : 0;  // strobe
     channels[4] = 2 + ((255 - 2) * strobe);  // strobe (3-255 = slow-fast)
+    
+    smoothChannels();
 }
 
 void ShowtecLedBar16::initFixtureParameters() {
@@ -30,6 +39,7 @@ void ShowtecLedBar16::initFixtureParameters() {
     parameters.add( blue.set("blue", 0, 0, 1));
     parameters.add( dimmer.set("dimmer", 1, 0, 1));
     parameters.add( strobe.set("strobe", 0, 0, 1));
+    parameters.add( smoothing.set("smoothing", 1, 0, 1));
 }
 
 void ShowtecLedBar16::initDrawing() {

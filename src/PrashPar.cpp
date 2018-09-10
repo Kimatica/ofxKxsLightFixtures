@@ -12,6 +12,13 @@ PrashPar::~PrashPar() { ofLog(OF_LOG_VERBOSE, "PrashPar destroyed"); }
 
 PrashPar::PrashPar() {
     channels.resize(10);
+    
+    // smoothing
+    channelsSmooth.resize(channels.size());
+    for (int i = 0; i < channels.size(); i++) {
+        smoothers.push_back( Smoother( channels[i], channelsSmooth[i]));
+    }
+    smoothers[7].bypass = true; // do not smooth strobe
 }
 
 void PrashPar::update() {
@@ -25,6 +32,8 @@ void PrashPar::update() {
     channels[7] = 5 + ((255-5) * strobe);   // strobe (5-255 - slow>fast)
     channels[8] = 0;
     channels[9] = 0;
+    
+    smoothChannels();
 }
 
 void PrashPar::initFixtureParameters() {
@@ -34,6 +43,7 @@ void PrashPar::initFixtureParameters() {
     parameters.add( uv.set("uv", 0, 0, 1));
     parameters.add( dimmer.set("dimmer", 1, 0, 1));
     parameters.add( strobe.set("strobe", 0, 0, 1));
+    parameters.add( smoothing.set("smoothing", 1, 0, 1));
 }
 
 void PrashPar::initDrawing() {
