@@ -39,7 +39,7 @@ void AdjTriparProfile::initFixtureParameters() {
     parameters.add( blue.set("blue", 0, 0, 1));
     parameters.add( dimmer.set("dimmer", 1, 0, 1));
     parameters.add( strobe.set("strobe", 0, 0, 1));
-    parameters.add( smoothing.set("smoothing", 1, 0, 1));
+    //parameters.add( smoothing.set("smoothing", 1, 0, 1));
 }
 
 void AdjTriparProfile::initDrawing() {

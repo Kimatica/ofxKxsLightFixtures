@@ -13,3 +13,5 @@
 #include "ChauvetColorBandPix.h"
 #include "UVPanel.h"
 #include "PrashPar.h"
+#include "Dimmer.h"
+#include "StarvilleFloodPanel150.h"
