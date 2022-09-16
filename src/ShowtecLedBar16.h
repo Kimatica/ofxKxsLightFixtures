@@ -22,6 +22,7 @@ public:
     ~ShowtecLedBar16();
     
     void update() override;
+    void update(Grid& grid) override;
     void draw() override;
 
     //ofParameter<ofFloatColor> color; // r, g, b, dimmer

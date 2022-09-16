@@ -4,8 +4,8 @@
 
 #pragma once
 
-#include "DmxFixture.h"
 #include "AdjTriparProfile.h"
+#include "ApeLabsCans.h"
 #include "AdjTriparProfilePlus.h"
 #include "ShowtecLedBar16.h"
 #include "MovingHead.h"

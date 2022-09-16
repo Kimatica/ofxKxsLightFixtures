@@ -2,6 +2,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "Grid.h"
 
 class Smoother {
 public:
@@ -40,12 +41,16 @@ public:
     
     virtual void setup(int address, string name);
     virtual void update() = 0;
+    virtual void update(Grid& grid) = 0;
     virtual void draw() = 0;
     
     const vector<int> & getChannels();
     const int getNumChannels();
     const string getName();
     const int getAddress();
+
+    void setGridPosition(glm::vec2 pos);
+    const glm::vec2 getGridPosition();
     
     void setTransform(ofVec3f position, float angle, ofVec3f rotAxis);
     void setTransform(ofMatrix4x4 transform);
@@ -64,4 +69,5 @@ protected:
     virtual void initDrawing() = 0;
     
     ofMatrix4x4 transform;
+    glm::vec2 gridPosition;
 };
