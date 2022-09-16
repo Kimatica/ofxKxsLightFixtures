@@ -32,6 +32,24 @@ void ShowtecLedBar16::update() {
     smoothChannels();
 }
 
+void ShowtecLedBar16::update(Grid& grid)
+{
+    auto col = grid.getColorAtPosition(gridPosition);
+
+    red = col.r / 255.0f;
+    green = col.g / 255.0f;
+    blue = col.b / 255.0f;
+
+    //Diming handled by the grid
+    channels[0] = col.r * 255; // red
+    channels[1] = col.g * 255; // green
+    channels[2] = col.b * 255; // blue
+    channels[3] = grid.dimmer; // dimmer
+    channels[4] = grid.strobe;  // strobe (3-255 = slow-fast)
+
+    smoothChannels();
+}
+
 void ShowtecLedBar16::initFixtureParameters() {
     //parameters.add( color.set("color", ofFloatColor(0,0.3,0,1), ofFloatColor(0,0,0,0), ofFloatColor(1,1,1,1)));
     parameters.add( red.set("red", 0, 0, 1));

@@ -46,6 +46,16 @@ const int DmxFixture::getAddress() {
     return address;
 }
 
+void DmxFixture::setGridPosition(glm::vec2 pos)
+{
+    gridPosition = pos;
+}
+
+const glm::vec2 DmxFixture::getGridPosition()
+{
+    return gridPosition;
+}
+
 void DmxFixture::setTransform(ofVec3f position, float angle, ofVec3f rotAxis) {
     ofMatrix4x4 translation = ofMatrix4x4::newTranslationMatrix(position);
     ofMatrix4x4 rotation = ofMatrix4x4::newRotationMatrix(angle, rotAxis);
