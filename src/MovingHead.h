@@ -1,10 +1,4 @@
 //
-//  MovingHead.hpp
-//  virtualFixture
-//
-//  Created by Nestor Rubio Garcia on 06/04/2018.
-//
-//  ---
 //  Fusion Spot MKII
 //  8 channels DMX mode
 //
@@ -35,7 +29,6 @@ public:
     
     void setup(int address, string name) override;
     void update() override;
-    void draw() override;
     
     // angle to dmx
     void setTiltMapping(AngleDMXMapping min, AngleDMXMapping max, AngleDMXMapping zero);
@@ -66,5 +59,4 @@ protected:
     virtual void initPanTilt();
     virtual void initFixtureMapping();  // mapping between angles and dmx values
     void initFixtureParameters() override;
-    void initDrawing() override;
 };

@@ -110,26 +110,6 @@ void MovingHeadFusionMKII::update() {
     channels[7] = dimmer * 255;                 // dimmer
 }
 
-void MovingHeadFusionMKII::draw() {
-    panTilt.draw();
-    
-    ofPushMatrix();
-    {
-        ofMultMatrix(panTilt.getTransform());
-        
-        //ofTranslate(panTilt.getHeadPosition());      // this is in global space...
-        ofTranslate(panTilt.getHeadPositionLocal());   // ... we need local space
-        ofRotateY(panTilt.anglePan);
-        ofRotateX(panTilt.angleTilt);
-        
-        ofPushStyle();
-        ofSetColor(ofColor::darkGray);
-        ofDrawCircle(0, 0, 5);
-        ofPopStyle();
-    }
-    ofPopMatrix();
-}
-
 void MovingHeadFusionMKII::activateColor(string name) {
     channels[2] = colorsMap[name];
     activateParameterInGroup(groupColors, name);

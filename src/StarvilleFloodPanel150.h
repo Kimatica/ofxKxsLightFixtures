@@ -1,10 +1,3 @@
-//
-//  StarvilleFloodPanel150.h
-//  lightFixtures-osc
-//
-//  Created by Nestor Rubio Garcia on 26/09/2019.
-//
-
 #pragma once
 
 #include "DmxFixture.h"
@@ -17,7 +10,6 @@ public:
     ~StarvilleFloodPanel150();
     
     void update() override;
-    void draw() override;
     
     ofParameter<float> red;
     ofParameter<float> green;
@@ -26,5 +18,4 @@ public:
     
 private:
     void initFixtureParameters() override;
-    void initDrawing() override;
 };

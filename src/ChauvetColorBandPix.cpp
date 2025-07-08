@@ -33,37 +33,3 @@ void ChauvetColorBandPix::initFixtureParameters() {
     parameters.add( strobe.set("strobe", 0, 0, 1));
 }
 
-void ChauvetColorBandPix::initDrawing() {
-    // TODO
-}
-
-void ChauvetColorBandPix::draw() {
-    // default unit is cm
-    float width = 100;
-    float depth = 7;
-    ofFloatColor c(red*dimmer, green*dimmer, blue*dimmer);
-    
-    ofPushStyle();
-    ofPushMatrix();
-    {
-        ofMultMatrix(transform);
-        
-        ofDrawAxis(8);
-        
-        // back
-        ofSetColor(ofColor::dimGrey);
-        ofDrawBox(0, 0, 0, width, depth, depth);
-        
-        // front
-        if (strobe > 0.f) {
-            float blinkFreq = strobe * 50.f;
-            float blink = 0.5f + sin(ofGetElapsedTimef() * blinkFreq) * 0.5f; //0..1
-            blink = blink > 0.8f ? 1.f : 0.f;
-            c.set(c.r * blink, c.g * blink, c.b * blink);
-        }
-        ofSetColor(c);
-        ofDrawRectangle(-width*0.5+1, -depth*0.5+1, depth*0.5+0.01, width-2, depth-2);
-    }
-    ofPopMatrix();
-    ofPopStyle();
-}

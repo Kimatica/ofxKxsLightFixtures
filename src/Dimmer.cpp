@@ -26,11 +26,3 @@ void Dimmer::initFixtureParameters() {
     parameters.add( dimmer.set("dimmer", 1, 0, 1));
     parameters.add( smoothing.set("smoothing", 1, 0, 1));
 }
-
-void Dimmer::initDrawing() {
-    // TODO
-}
-
-void Dimmer::draw() {
-   // TODO
-}

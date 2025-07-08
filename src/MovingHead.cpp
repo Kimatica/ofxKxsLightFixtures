@@ -71,14 +71,6 @@ const ofMatrix4x4& MovingHead::getTransform() {
     return panTilt.getTransform();
 }
 
-void MovingHead::draw() {
-    panTilt.draw();
-}
-
-void MovingHead::initDrawing() {
-    // nothing
-}
-
 string MovingHead::getMappingInfoString() {
     string str;
     str += "           Angle    DMX \n";

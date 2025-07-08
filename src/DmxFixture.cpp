@@ -1,10 +1,3 @@
-//
-//  DmxFixture.cpp
-//  dmxAdjMegaTriparProfile
-//
-//  Created by Nestor Rubio Garcia on 17/04/2018.
-//
-
 #include "DmxFixture.h"
 
 
@@ -23,7 +16,6 @@ void DmxFixture::setup(int address, string name) {
     parameters.setName(name);
     
     initFixtureParameters();
-    initDrawing();
 }
 
 const vector<int> & DmxFixture::getChannels() {
@@ -44,20 +36,6 @@ const string DmxFixture::getName() {
 
 const int DmxFixture::getAddress() {
     return address;
-}
-
-void DmxFixture::setTransform(ofVec3f position, float angle, ofVec3f rotAxis) {
-    ofMatrix4x4 translation = ofMatrix4x4::newTranslationMatrix(position);
-    ofMatrix4x4 rotation = ofMatrix4x4::newRotationMatrix(angle, rotAxis);
-    transform = rotation * translation; // (oF premult) transformations happen from left to right
-}
-
-void DmxFixture::setTransform(ofMatrix4x4 transform) {
-    this->transform = transform;
-}
-
-const ofMatrix4x4& DmxFixture::getTransform() {
-    return transform;
 }
 
 void DmxFixture::smoothChannels() {

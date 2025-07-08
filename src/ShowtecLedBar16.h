@@ -1,10 +1,4 @@
 //
-//  ShowtecLedBar.hpp
-//  dmxAdjMegaTriparProfile
-//
-//  Created by Nestor Rubio Garcia on 17/04/2018.
-//
-// --
 // Showtec LED Light Bar 16 Mega Tripar Profile (RGB)
 // 5 channel mode (2c_5)
 //
@@ -22,7 +16,6 @@ public:
     ~ShowtecLedBar16();
     
     void update() override;
-    void draw() override;
 
     //ofParameter<ofFloatColor> color; // r, g, b, dimmer
     ofParameter<float> red;
@@ -33,5 +26,4 @@ public:
     
 private:    
     void initFixtureParameters() override;
-    void initDrawing() override;
 };

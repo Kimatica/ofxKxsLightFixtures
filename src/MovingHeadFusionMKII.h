@@ -1,10 +1,4 @@
 //
-//  MovingHeadDMXControl.hpp
-//  pointTracking
-//
-//  Created by Nestor Rubio Garcia on 13/04/2018.
-//
-//  ---
 //  Fusion Spot MKII
 //  8 channels DMX mode
 //
@@ -31,7 +25,6 @@ public:
     ~MovingHeadFusionMKII();
     
     void update() override;
-    void draw() override;
     
     ofParameter<float> panTiltSpeed;
     ofParameter<float> shutter;
@@ -48,7 +41,6 @@ private:
     void initPanTilt() override;
     void initFixtureMapping() override;
     void initFixtureParameters() override;
-    //void initDrawing() override;
     
     std::map<string, int> colorsMap;
     std::map<string, int> gobosMap;

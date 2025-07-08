@@ -16,7 +16,6 @@ public:
     ~PrashPar();
     
     void update() override;
-    void draw() override;
     
     ofParameter<float> red;
     ofParameter<float> green;
@@ -28,6 +27,5 @@ public:
     
 private:
     void initFixtureParameters() override;
-    void initDrawing() override;
 };
 

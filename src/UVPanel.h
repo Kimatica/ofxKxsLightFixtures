@@ -1,10 +1,4 @@
 //
-//  UVPanel.hpp
-//  dmxUVPanel
-//
-//  Created by Nestor Rubio Garcia on 17/04/2018.
-//
-// --
 // AmericanDJ Mega Tripar Profile (RGB)
 // 6 channel mode
 //
@@ -20,7 +14,6 @@ public:
     ~UVPanel();
     
     void update() override;
-    void draw() override;
     
     //ofParameter<ofFloatColor> color;    // r, g, b, dimmer
     ofParameter<float> red;
@@ -32,6 +25,5 @@ public:
     
 private:
     void initFixtureParameters() override;
-    void initDrawing() override;
 };
 

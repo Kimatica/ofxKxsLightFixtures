@@ -31,26 +31,20 @@ class DmxFixture {
     
 public:
     DmxFixture();
-    // https://stackoverflow.com/questions/461203/when-to-use-virtual-destructors
-    virtual ~DmxFixture();
+	virtual ~DmxFixture();
     
     ofParameterGroup parameters;
+	ofParameterGroup parametersColor;
     ofParameter<float> dimmer;
-    ofParameter<float> smoothing;
+    ofParameter<float> smoothing; // TODO: remove, smoothing should be in group controller
     
     virtual void setup(int address, string name);
     virtual void update() = 0;
-    virtual void draw() = 0;
     
     const vector<int> & getChannels();
     const int getNumChannels();
     const string getName();
     const int getAddress();
-    
-    void setTransform(ofVec3f position, float angle, ofVec3f rotAxis);
-    void setTransform(ofMatrix4x4 transform);
-    
-    const ofMatrix4x4& getTransform();
     
 protected:
     int address;
@@ -61,7 +55,6 @@ protected:
     void smoothChannels();
     
     virtual void initFixtureParameters() = 0;
-    virtual void initDrawing() = 0;
     
     ofMatrix4x4 transform;
 };

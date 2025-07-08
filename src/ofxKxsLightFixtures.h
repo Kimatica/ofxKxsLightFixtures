@@ -1,7 +1,3 @@
-//
-//  Created by Nestor Rubio Garcia on 17/04/2018.
-//
-
 #pragma once
 
 #include "DmxFixture.h"
@@ -15,3 +11,5 @@
 #include "PrashPar.h"
 #include "Dimmer.h"
 #include "StarvilleFloodPanel150.h"
+#include "ApelabsLightcan.h"
+#include "MiniPar.h"

@@ -10,10 +10,8 @@ public:
     ~Dimmer();
     
     void update() override;
-    void draw() override;
     
 private:
     void initFixtureParameters() override;
-    void initDrawing() override;
 };
 
