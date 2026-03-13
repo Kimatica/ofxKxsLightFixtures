@@ -180,7 +180,8 @@ string MovingHeadFusionMKII::getFixtureCurrentColor() {
         if (color.second == channels[2]) {
             return color.first;
         }
-    }
+	}
+	return "";
 }
 
 string MovingHeadFusionMKII::getFixtureCurrentGobo() {
@@ -188,7 +189,8 @@ string MovingHeadFusionMKII::getFixtureCurrentGobo() {
         if (gobo.second == channels[3]) {
             return gobo.first;
         }
-    }
+	}
+	return "";
 }
 
 string MovingHeadFusionMKII::getFixtureCurrentFunction() {
@@ -196,7 +198,8 @@ string MovingHeadFusionMKII::getFixtureCurrentFunction() {
         if (function.second == channels[6]) {
             return function.first;
         }
-    }
+	}
+	return "";
 }
 
 // ---------------------------
