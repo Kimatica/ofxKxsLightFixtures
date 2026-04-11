@@ -13,3 +13,5 @@
 #include "StarvilleFloodPanel150.h"
 #include "ApelabsLightcan.h"
 #include "MiniPar.h"
+#include "EquinoxUVPowerFlood.h"
+#include "YcOnionEnergyTubepro.h"
