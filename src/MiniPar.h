@@ -1,3 +1,8 @@
+//
+// Cheap/low power Aliexpress pars 
+// 4 channels
+//
+
 #pragma once
 #include "DmxFixture.h"
 
@@ -30,6 +35,6 @@ private:
         parameters.add(blue.set("blue", 0, 0, 1));
         parameters.add(white.set("white", 0, 0, 1));
 
-		parametersColor.add(red, green, blue, white);
+        parametersColor.add(red, green, blue, white);
     }
 };
