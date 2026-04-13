@@ -57,6 +57,7 @@ private:
         parameters.add(dimmerRow2.set("dimmerRow2", 1, 0, 1));
         parameters.add(dimmerRow3.set("dimmerRow3", 2, 0, 1));
         parameters.add(dimmerRow4.set("dimmerRow4", 1, 0, 1));
-        parameters.add(smoothing.set("smoothing", 1, 0, 1));
+
+        smoothing.set("smoothing", 1, 0, 1);
     }
 };

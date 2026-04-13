@@ -36,7 +36,8 @@ public:
     ofParameterGroup parameters;
 	ofParameterGroup parametersColor;
     ofParameter<float> dimmer;
-    ofParameter<float> smoothing; // TODO: remove, smoothing should be in group controller
+    // TODO: remove, smoothing should be in group controller
+    ofParameter<float> smoothing; 
     
     virtual void setup(int address, string name);
     virtual void update() = 0;
